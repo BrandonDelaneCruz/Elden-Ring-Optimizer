@@ -18,13 +18,12 @@ string faith = "0";
 string arc = "0";
 #endregion
 
-bool keepLooping = true;
-
 Console.Write("What is your name: ");
 characterName = Console.ReadLine();
 Console.Clear();
 
-while (keepLooping)
+bool isUserCreatingCharacter = true;
+while (isUserCreatingCharacter)
 {
     String userResponse = "";
 
@@ -292,7 +291,7 @@ while (keepLooping)
 
     if (userResponse == "n")
     {
-        keepLooping = false;
+        isUserCreatingCharacter = false;
     }
 }
 
@@ -311,5 +310,5 @@ Console.WriteLine($"Dexterity: {dex}");
 Console.WriteLine($"Intelligence: {intel}");
 Console.WriteLine($"Arcane: {arc}");
 Console.WriteLine();
-Console.Write("Enjoy your character!");
+Console.Write("Press en");
 #endregion
