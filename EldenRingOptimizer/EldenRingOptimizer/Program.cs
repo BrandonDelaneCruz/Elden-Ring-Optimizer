@@ -27,9 +27,9 @@ Console.Clear();
 while (keepLooping)
 {
     String userResponse = "";
-    bool isResponseValid = true;
 
     #region Character Sheet edit 
+    Console.Clear();
     Console.WriteLine($"Charcter name: {characterName}");
     Console.WriteLine($"Class Chosen: {classChosen}");
     Console.WriteLine($"Starting Item: {startingItem}");
@@ -46,22 +46,40 @@ while (keepLooping)
     Console.WriteLine();
     Console.Write("Would you like to edit this character? (y/n): ");
     #endregion
+    
+    bool isResponseValid = true;
 
     while (isResponseValid)
     {
         userResponse = Console.ReadLine();
         
-
         if (userResponse == "y")
         {
             Console.Clear();
-            Console.WriteLine("CHARACTER EDIT");
-            Console.WriteLine("1: Name");
-            Console.WriteLine("2: Class");
-            Console.WriteLine("3: Starting Item");
-            Console.WriteLine("4: Stats");
-            Console.Write("Select an option that you want to edit: ");
-            userResponse = Console.ReadLine();
+
+            bool isCharacterEditResponceInvalid = true;
+            while (isCharacterEditResponceInvalid)
+            {
+                Console.WriteLine("CHARACTER EDIT");
+                Console.WriteLine("1: Name");
+                Console.WriteLine("2: Class");
+                Console.WriteLine("3: Starting Item");
+                Console.WriteLine("4: Stats");
+                Console.Write("Select an option that you want to edit: ");
+                userResponse = Console.ReadLine();
+
+                if (userResponse == "1" || userResponse == "2" || userResponse == "3"  || userResponse == "4")
+                {
+                    isCharacterEditResponceInvalid = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid Response! Try Again!");
+                    Console.WriteLine();
+                    
+                }
+            }
 
             if (userResponse == "1")
             {
@@ -279,6 +297,7 @@ while (keepLooping)
 }
 
 #region Final character sheet
+Console.Clear();
 Console.WriteLine($"Charcter name: {characterName}");
 Console.WriteLine($"Class Chosen: {classChosen}");
 Console.WriteLine($"Starting Item: {startingItem}");
@@ -293,5 +312,4 @@ Console.WriteLine($"Intelligence: {intel}");
 Console.WriteLine($"Arcane: {arc}");
 Console.WriteLine();
 Console.Write("Enjoy your character!");
-Console.Clear();
 #endregion
