@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Transactions;
 
 string characterName = "Unknown";
-bool hasNameBeenSet = true;
+bool hasNameBeenSet = false;
 string classChosen = "Unknown";
 bool hasClassBeenSet = false;
 string startingItem = "Unknown";
@@ -46,6 +46,7 @@ Console.ReadLine();
 bool isUserCreatingCharacter = true;
 while (isUserCreatingCharacter)
 {
+    #region ManageCharacterName
     string userResponse = "";
     if(hasNameBeenSet == true)
     {
@@ -102,9 +103,71 @@ while (isUserCreatingCharacter)
                 isUserChoosingNewName = false;
             }
         }
-        
     }
-   
+    else
+    {
+        bool isNameCorrect = true;
+        while (isNameCorrect)
+        {
+            Console.Clear();
+            Console.Write("Enter Characters name: ");
+            characterName = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"Character name: {characterName}");
+            Console.WriteLine();
+            Console.Write("Is this name correct (y/n)? ");
+            userResponse = Console.ReadLine();
+
+            if (userResponse == "y")
+            {
+            isNameCorrect = false;
+            hasNameBeenSet = true;
+            }
+            else if (userResponse != "y" && userResponse != "n")
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid entry.");
+                Console.WriteLine();
+                Console.Write("Press enter to continue.");
+                Console.ReadLine();
+            }
+        }
+    }
+    #endregion
+
+    #region ManageClass
+
+    #endregion
+
+    Console.Clear();
+    Console.WriteLine($"Charcter name: {characterName}");
+    Console.WriteLine($"Class Chosen: {classChosen}");
+    Console.WriteLine($"Starting Item: {startingItem}");
+    Console.WriteLine();
+    Console.WriteLine("===STATS===");
+    Console.WriteLine($"Vigor: {vig}");
+    Console.WriteLine($"Mind: {mind}");
+    Console.WriteLine($"Endurance: {end}");
+    Console.WriteLine($"Strength: {str}");
+    Console.WriteLine($"Dexterity: {dex}");
+    Console.WriteLine($"Intelligence: {intel}");
+    Console.WriteLine($"Arcane: {arc}");
+    Console.WriteLine();
+    Console.Write("Is this correct (y/n)");
+    userResponse = Console.ReadLine();
+
+    if (userResponse == "y")
+    {
+        isUserCreatingCharacter = false;
+    }
+    else if (userResponse != "y" && userResponse != "n")
+    {
+        Console.Clear();
+        Console.WriteLine("Invalid entry.");
+        Console.WriteLine();
+        Console.Write("Press enter to continue.");
+        Console.ReadLine();
+    }
 
 }
 
