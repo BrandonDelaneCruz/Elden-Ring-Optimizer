@@ -1,4 +1,4 @@
-﻿#region Character infromation.
+#region Character infromation.
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
@@ -62,7 +62,6 @@ while (isUserCreatingCharacter)
         {
             if (userResponse == "y")
             {
-
                 bool isNameCorrect = true;
                 while (isNameCorrect)
                 {
@@ -101,6 +100,7 @@ while (isUserCreatingCharacter)
                 Console.WriteLine();
                 Console.Write("Press enter to continue.");
                 Console.ReadLine();
+
                 isUserChoosingNewName = false;
             }
         }
@@ -135,6 +135,7 @@ while (isUserCreatingCharacter)
         }
     }
     #endregion
+
     #region ManageCharacterClass
     if (hasClassBeenSet == true)
     {
@@ -159,7 +160,6 @@ while (isUserCreatingCharacter)
         {
             if (userResponse == "y")
             {
-
                 bool isClassCorrect = true;
                 while (isClassCorrect)
                 {
@@ -365,18 +365,19 @@ while (isUserCreatingCharacter)
                 Console.WriteLine();
                 Console.Write("Press enter to continue.");
                 Console.ReadLine();
+
                 isUserChoosingNewClass = false;
             }
         }
     }
     else
     {
-
         bool isClassCorrect = true;
         while (isClassCorrect)
         {
             Console.Clear();
             Console.WriteLine("CLASSES");
+            Console.WriteLine();
             Console.WriteLine("1: Astrologer");
             Console.WriteLine("2: Bandit");
             Console.WriteLine("3. Confessor");
@@ -387,9 +388,11 @@ while (isUserCreatingCharacter)
             Console.WriteLine("8: Vagabond");
             Console.WriteLine("9: Warrior");
             Console.WriteLine("10: Wretch");
+            Console.WriteLine();
             Console.Write("Please select a class: ");
             userResponse = Console.ReadLine();
             Console.Clear();
+
             //Astrologer
             if (userResponse == "1")
             {
@@ -570,40 +573,40 @@ while (isUserCreatingCharacter)
             }
         }
     }
-        #endregion
-        #region CharacterSheetReview
-        Console.Clear();
-        Console.WriteLine($"Charcter name: {characterName}");
-        Console.WriteLine($"Class Chosen: {classChosen}");
-        Console.WriteLine($"Starting Item: {startingItem}");
-        Console.WriteLine();
-        Console.WriteLine("===STATS===");
-        Console.WriteLine($"Vigor: {vig}");
-        Console.WriteLine($"Mind: {mind}");
-        Console.WriteLine($"Endurance: {end}");
-        Console.WriteLine($"Strength: {str}");
-        Console.WriteLine($"Dexterity: {dex}");
-        Console.WriteLine($"Intelligence: {intel}");
-        Console.WriteLine($"Faith: {faith}");
-        Console.WriteLine($"Arcane: {arc}");
-        Console.WriteLine();
-        Console.Write("Is this correct (y/n)");
-        userResponse = Console.ReadLine();
 
-        if (userResponse == "y")
-        {
-            isUserCreatingCharacter = false;
-        }
-        else if (userResponse != "y" && userResponse != "n")
-        {
-            Console.Clear();
-            Console.WriteLine("Invalid entry.");
-            Console.WriteLine();
-            Console.Write("Press enter to continue.");
-            Console.ReadLine();
-        }
-        #endregion
-    
+    #endregion
+    #region CharacterSheetReview
+    Console.Clear();
+    Console.WriteLine($"Charcter name: {characterName}");
+    Console.WriteLine($"Class Chosen: {classChosen}");
+    Console.WriteLine($"Starting Item: {startingItem}");
+    Console.WriteLine();
+    Console.WriteLine("===STATS===");
+    Console.WriteLine($"Vigor: {vig}");
+    Console.WriteLine($"Mind: {mind}");
+    Console.WriteLine($"Endurance: {end}");
+    Console.WriteLine($"Strength: {str}");
+    Console.WriteLine($"Dexterity: {dex}");
+    Console.WriteLine($"Intelligence: {intel}");
+    Console.WriteLine($"Faith: {faith}");
+    Console.WriteLine($"Arcane: {arc}");
+    Console.WriteLine();
+    Console.Write("Is this correct (y/n)");
+    userResponse = Console.ReadLine();
+
+    if (userResponse == "y")
+    {
+        isUserCreatingCharacter = false;
+    }
+    else if (userResponse != "y" && userResponse != "n")
+    {
+        Console.Clear();
+        Console.WriteLine("Invalid entry.");
+        Console.WriteLine();
+        Console.Write("Press enter to continue.");
+        Console.ReadLine();
+    }
+    #endregion
 }
 
 
