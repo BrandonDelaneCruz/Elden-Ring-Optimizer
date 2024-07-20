@@ -312,6 +312,14 @@ while (isUserCreatingCharacter)
                         faith = "10";
                         arc = "10";
                     }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid entry.");
+                        Console.WriteLine();
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                    }
 
                     Console.Clear();
                     Console.WriteLine($"Character class: {classChosen}");
@@ -334,17 +342,7 @@ while (isUserCreatingCharacter)
                         isUserChoosingNewClass = false;
                         isClassCorrect = false;
                     }
-                    else if (
-                        userResponse != "1"
-                        && userResponse != "2"
-                        && userResponse != "3"
-                        && userResponse != "4"
-                        && userResponse != "5"
-                        && userResponse != "6"
-                        && userResponse != "7"
-                        && userResponse != "8"
-                        && userResponse != "9"
-                        && userResponse != "10")
+                    else if (userResponse != "n")
                     {
                         Console.Clear();
                         Console.WriteLine("Invalid entry.");
@@ -375,171 +373,185 @@ while (isUserCreatingCharacter)
         bool isClassCorrect = true;
         while (isClassCorrect)
         {
-            Console.Clear();
-            Console.WriteLine("CLASSES");
-            Console.WriteLine();
-            Console.WriteLine("1: Astrologer");
-            Console.WriteLine("2: Bandit");
-            Console.WriteLine("3. Confessor");
-            Console.WriteLine("4: Hero");
-            Console.WriteLine("5: Prisoner");
-            Console.WriteLine("6: Prophet");
-            Console.WriteLine("7: Samurai");
-            Console.WriteLine("8: Vagabond");
-            Console.WriteLine("9: Warrior");
-            Console.WriteLine("10: Wretch");
-            Console.WriteLine();
-            Console.Write("Please select a class: ");
-            userResponse = Console.ReadLine();
-            Console.Clear();
-
-            //Astrologer
-            if (userResponse == "1")
-            {
-                classChosen = "Astrologer";
-                vig = "9";
-                mind = "15";
-                end = "9";
-                str = "8";
-                dex = "12";
-                intel = "16";
-                faith = "7";
-                arc = "9";
-            }
-            //Bandit
-            else if (userResponse == "2")
-            {
-                classChosen = "Bandit";
-                vig = "10";
-                mind = "11";
-                end = "10";
-                str = "9";
-                dex = "13";
-                intel = "9";
-                faith = "8";
-                arc = "14";
-            }
-            //Confessor
-            else if (userResponse == "3")
-            {
-                classChosen = "Confessor";
-                vig = "10";
-                mind = "13";
-                end = "10";
-                str = "12";
-                dex = "12";
-                intel = "9";
-                faith = "14";
-                arc = "9";
-            }
-            //Hero
-            else if (userResponse == "4")
-            {
-                classChosen = "Hero";
-                vig = "14";
-                mind = "9";
-                end = "12";
-                str = "16";
-                dex = "9";
-                intel = "7";
-                faith = "8";
-                arc = "11";
-            }
-            //Prisoner
-            else if (userResponse == "5")
-            {
-                classChosen = "Prisoner";
-                vig = "11";
-                mind = "12";
-                end = "11";
-                str = "11";
-                dex = "14";
-                intel = "14";
-                faith = "6";
-                arc = "9";
-            }
-            //Prophet
-            else if (userResponse == "6")
-            {
-                classChosen = "Prophet";
-                vig = "10";
-                mind = "14";
-                end = "8";
-                str = "11";
-                dex = "10";
-                intel = "7";
-                faith = "16";
-                arc = "10";
-            }
-            //Samurai
-            else if (userResponse == "7")
-            {
-                classChosen = "Samurai";
-                vig = "12";
-                mind = "11";
-                end = "13";
-                str = "12";
-                dex = "15";
-                intel = "9";
-                faith = "8";
-                arc = "8";
-            }
-            //Vagabond
-            else if (userResponse == "8")
-            {
-                classChosen = "Vagabond";
-                vig = "15";
-                mind = "10";
-                end = "11";
-                str = "14";
-                dex = "13";
-                intel = "9";
-                faith = "9";
-                arc = "7";
-            }
-            //Warrior
-            else if (userResponse == "9")
-            {
-                classChosen = "Warrior";
-                vig = "11";
-                mind = "12";
-                end = "11";
-                str = "10";
-                dex = "16";
-                intel = "10";
-                faith = "8";
-                arc = "9";
-            }
-            //Wretch
-            else if (userResponse == "10")
-            {
-                classChosen = "Wretch";
-                vig = "10";
-                mind = "10";
-                end = "10";
-                str = "10";
-                dex = "10";
-                intel = "10";
-                faith = "10";
-                arc = "10";
-            }
-            else if (
-                userResponse != "1"
-                && userResponse != "2"
-                && userResponse != "3"
-                && userResponse != "4"
-                && userResponse != "5"
-                && userResponse != "6"
-                && userResponse != "7"
-                && userResponse != "8"
-                && userResponse != "9"
-                && userResponse != "10")
+            bool newClassSelection = true;
+            while (newClassSelection)
             {
                 Console.Clear();
-                Console.WriteLine("Invalid entry.");
+                Console.WriteLine("CLASSES");
                 Console.WriteLine();
-                Console.Write("Press enter to continue.");
-                Console.ReadLine();
+                Console.WriteLine("1: Astrologer");
+                Console.WriteLine("2: Bandit");
+                Console.WriteLine("3. Confessor");
+                Console.WriteLine("4: Hero");
+                Console.WriteLine("5: Prisoner");
+                Console.WriteLine("6: Prophet");
+                Console.WriteLine("7: Samurai");
+                Console.WriteLine("8: Vagabond");
+                Console.WriteLine("9: Warrior");
+                Console.WriteLine("10: Wretch");
+                Console.WriteLine();
+                Console.Write("Please select a class: ");
+                userResponse = Console.ReadLine();
+                Console.Clear();
+
+                //Astrologer
+                if (userResponse == "1")
+                {
+                    classChosen = "Astrologer";
+                    vig = "9";
+                    mind = "15";
+                    end = "9";
+                    str = "8";
+                    dex = "12";
+                    intel = "16";
+                    faith = "7";
+                    arc = "9";
+
+                    newClassSelection = false;
+                }
+                //Bandit
+                else if (userResponse == "2")
+                {
+                    classChosen = "Bandit";
+                    vig = "10";
+                    mind = "11";
+                    end = "10";
+                    str = "9";
+                    dex = "13";
+                    intel = "9";
+                    faith = "8";
+                    arc = "14";
+
+                    newClassSelection = false;
+                }
+                //Confessor
+                else if (userResponse == "3")
+                {
+                    classChosen = "Confessor";
+                    vig = "10";
+                    mind = "13";
+                    end = "10";
+                    str = "12";
+                    dex = "12";
+                    intel = "9";
+                    faith = "14";
+                    arc = "9";
+
+                    newClassSelection = false;
+                }
+                //Hero
+                else if (userResponse == "4")
+                {
+                    classChosen = "Hero";
+                    vig = "14";
+                    mind = "9";
+                    end = "12";
+                    str = "16";
+                    dex = "9";
+                    intel = "7";
+                    faith = "8";
+                    arc = "11";
+
+                    newClassSelection = false;
+                }
+                //Prisoner
+                else if (userResponse == "5")
+                {
+                    classChosen = "Prisoner";
+                    vig = "11";
+                    mind = "12";
+                    end = "11";
+                    str = "11";
+                    dex = "14";
+                    intel = "14";
+                    faith = "6";
+                    arc = "9";
+
+                    newClassSelection = false;
+                }
+                //Prophet
+                else if (userResponse == "6")
+                {
+                    classChosen = "Prophet";
+                    vig = "10";
+                    mind = "14";
+                    end = "8";
+                    str = "11";
+                    dex = "10";
+                    intel = "7";
+                    faith = "16";
+                    arc = "10";
+
+                    newClassSelection = false;
+                }
+                //Samurai
+                else if (userResponse == "7")
+                {
+                    classChosen = "Samurai";
+                    vig = "12";
+                    mind = "11";
+                    end = "13";
+                    str = "12";
+                    dex = "15";
+                    intel = "9";
+                    faith = "8";
+                    arc = "8";
+
+                    newClassSelection = false;
+                }
+                //Vagabond
+                else if (userResponse == "8")
+                {
+                    classChosen = "Vagabond";
+                    vig = "15";
+                    mind = "10";
+                    end = "11";
+                    str = "14";
+                    dex = "13";
+                    intel = "9";
+                    faith = "9";
+                    arc = "7";
+
+                    newClassSelection = false;
+                }
+                //Warrior
+                else if (userResponse == "9")
+                {
+                    classChosen = "Warrior";
+                    vig = "11";
+                    mind = "12";
+                    end = "11";
+                    str = "10";
+                    dex = "16";
+                    intel = "10";
+                    faith = "8";
+                    arc = "9";
+
+                    newClassSelection = false;
+                }
+                //Wretch
+                else if (userResponse == "10")
+                {
+                    classChosen = "Wretch";
+                    vig = "10";
+                    mind = "10";
+                    end = "10";
+                    str = "10";
+                    dex = "10";
+                    intel = "10";
+                    faith = "10";
+                    arc = "10";
+
+                    newClassSelection = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid entry.");
+                    Console.WriteLine();
+                    Console.Write("Press enter to continue.");
+                    Console.ReadLine();
+                }
             }
 
             Console.Clear();
@@ -562,8 +574,7 @@ while (isUserCreatingCharacter)
             {
                 isClassCorrect = false;
             }
-            else if (
-                userResponse != "y" && userResponse != "n")
+            else if (userResponse != "n")
             {
                 Console.Clear();
                 Console.WriteLine("Invalid entry.");
