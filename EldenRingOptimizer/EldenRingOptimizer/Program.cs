@@ -23,6 +23,12 @@ string faith = "0";
 string arc = "0";
 #endregion
 
+#region Character Starting Talisman
+string charStrTal = "";
+string charDexTal = "";
+string charQuaStrTal = "";
+string charQuaDexTal = "";
+#endregion
 
 #region Starting character sheet
 Console.Clear();
@@ -586,6 +592,179 @@ while (isUserCreatingCharacter)
     }
 
     #endregion
+
+    #region CharacterStartingItem
+    if (hasStartingItemBeenSet == true)
+    {
+        Console.Clear();
+        Console.WriteLine($"Character Starting Item: {startingItem}");
+        Console.WriteLine();
+        Console.WriteLine("CLASSES");
+        Console.WriteLine("1: Strength Talisman (+5 str)");
+        Console.WriteLine("2: Dexterity Talisman (+ 5 dex)");
+        Console.WriteLine("3. Quality Talisman (+2 str, +2 Dex)");
+        Console.WriteLine();
+        Console.Write("Would you like to change your characters Starting Item (y/n)? ");
+        userResponse = Console.ReadLine();
+
+        bool isUserChoosingNewSartingItem = true;
+        while (isUserChoosingNewSartingItem)
+        {
+            if (userResponse == "y")
+            {
+                bool isStartingItemCorrect = true;
+                while (isStartingItemCorrect)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Character starting item: {startingItem}");
+                    Console.WriteLine();
+                    Console.WriteLine("CLASSES");
+                    Console.WriteLine("1: Strength Talisman (+5 str)");
+                    Console.WriteLine("2: Dexterity Talisman (+ 5 dex)");
+                    Console.WriteLine("3. Quality Talisman (+2 str, +2 Dex)");
+                    Console.WriteLine();
+                    Console.Write("Please select a starting item: ");
+                    userResponse = Console.ReadLine();
+                    Console.Clear();
+
+                    //Strength Talismen
+                    if (userResponse == "1")
+                    {
+                        startingItem = "Strength Talisman (+5 str)";
+                        charStrTal = "+ 5";
+                    }
+                    //Dexterity Talismen
+                    else if (userResponse == "2")
+                    {
+                        startingItem = "Dexterity Talisman (+ 5 dex)";
+                        charDexTal = "+ 5";
+                    }
+                    //Quality tailisman
+                    else if (userResponse == "3")
+                    {
+                        startingItem = "Quality Talisman (+2 str, +2 Dex)";
+                        charQuaStrTal = "+ 2";
+                        charQuaDexTal = "+ 2";
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid entry.");
+                        Console.WriteLine();
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                    }
+
+                    Console.Clear();
+                    Console.WriteLine($"Character starting item: {startingItem}");
+                    Console.WriteLine();
+                    Console.Write("Is this Starting Item correct (y/n)? ");
+                    userResponse = Console.ReadLine();
+
+                    if (userResponse == "y")
+                    {
+                        isUserChoosingNewSartingItem = false;
+                        isStartingItemCorrect = false;
+                    }
+                    else if (userResponse != "n")
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Invalid entry.");
+                        Console.WriteLine();
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                    }
+                }
+            }
+            else if (userResponse == "n")
+            {
+                isUserChoosingNewSartingItem = false;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid entry.");
+                Console.WriteLine();
+                Console.Write("Press enter to continue.");
+                Console.ReadLine();
+
+                isUserChoosingNewSartingItem = false;
+            }
+        }
+    }
+    else
+    {
+        bool isStartingItemCorrect = true;
+        while (isStartingItemCorrect)
+        {
+            bool newStartingItemSelection = true;
+            while (newStartingItemSelection)
+            {
+                Console.Clear();
+                Console.WriteLine("STARTING ITEM");
+                Console.WriteLine();
+                Console.WriteLine("1: Strength Talisman (+5 str)");
+                Console.WriteLine("2: Dexterity Talisman (+ 5 dex)");
+                Console.WriteLine("3. Quality Talisman (+2 str, +2 Dex)");
+                Console.WriteLine();
+                Console.Write("Please select a starting item: ");
+                userResponse = Console.ReadLine();
+                Console.Clear();
+
+                //Strength Talismen
+                if (userResponse == "1")
+                {
+                    startingItem = "Strength Talisman (+5 str)";
+                    charStrTal = "+ 5";
+                    newStartingItemSelection = false;
+                }
+                //Dexterity Talismen
+                else if (userResponse == "2")
+                {
+                    startingItem = "Dexterity Talisman (+ 5 dex)";
+                    charDexTal = "+ 5";
+                    newStartingItemSelection = false;
+                }
+                //Quality tailisman
+                else if (userResponse == "3")
+                {
+                    startingItem = "Quality Talisman (+2 str, +2 Dex)";
+                    charQuaStrTal = "+ 2";
+                    charQuaDexTal = "+ 2";
+                    newStartingItemSelection = false;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid entry.");
+                    Console.WriteLine();
+                    Console.Write("Press enter to continue.");
+                    Console.ReadLine();
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine($"Character Starting Item: {startingItem}");
+            Console.WriteLine();
+            Console.Write("Is this Starting Item correct (y/n)? ");
+            userResponse = Console.ReadLine();
+
+            if (userResponse == "y")
+            {
+                isStartingItemCorrect = false;
+            }
+            else if (userResponse != "n")
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid entry.");
+                Console.WriteLine();
+                Console.Write("Press enter to continue.");
+                Console.ReadLine();
+            }
+        }
+    }
+    #endregion
+
     #region CharacterSheetReview
     Console.Clear();
     Console.WriteLine($"Charcter name: {characterName}");
@@ -596,8 +775,8 @@ while (isUserCreatingCharacter)
     Console.WriteLine($"Vigor: {vig}");
     Console.WriteLine($"Mind: {mind}");
     Console.WriteLine($"Endurance: {end}");
-    Console.WriteLine($"Strength: {str}");
-    Console.WriteLine($"Dexterity: {dex}");
+    Console.WriteLine($"Strength: {str} {charStrTal}{charQuaStrTal}");
+    Console.WriteLine($"Dexterity: {dex} {charDexTal}{charQuaDexTal}");
     Console.WriteLine($"Intelligence: {intel}");
     Console.WriteLine($"Faith: {faith}");
     Console.WriteLine($"Arcane: {arc}");
