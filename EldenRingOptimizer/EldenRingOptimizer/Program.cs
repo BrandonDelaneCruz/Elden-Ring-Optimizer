@@ -781,7 +781,7 @@ while (isUserCreatingCharacter)
     Console.WriteLine($"Faith: {faith}");
     Console.WriteLine($"Arcane: {arc}");
     Console.WriteLine();
-    Console.Write("Is this correct (y/n)");
+    Console.Write("Is this correct (y/n): ");
     userResponse = Console.ReadLine();
 
     if (userResponse == "y")
@@ -798,5 +798,10 @@ while (isUserCreatingCharacter)
     }
     #endregion
 }
+
+
+
+
+
 
 
